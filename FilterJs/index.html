@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Filtering</h2>
+        <center><input type="text" placeholder="search name..." id="myInput" onkeyup="searchFun()"></center>
+        <table border="1px" cellspacing="0" id="myTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Division</th>
+                    <th>Number</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ayush</td>
+                    <td>Front End</td>
+                    <td>9898989898</td>
+                    <td>yash07@gmail.co</td>
+                </tr>
+                <tr>
+                    <td>Bhargav</td>
+                    <td>BAck end</td>
+                    <td>8585858585</td>
+                    <td>yash07@gmail.co</td>
+                </tr>
+                <tr>
+                    <td>Amresh</td>
+                    <td>Front End</td>
+                    <td>7575757575</td>
+                    <td>yash07@gmail.co</td>
+                </tr>
+                <tr>
+                    <td>Nikunj</td>
+                    <td>QA</td>
+                    <td>6565656565</td>
+                    <td>yash07@gmail.co</td>
+                </tr>
+                <tr>
+                    <td>Ravi</td>
+                    <td>Front End</td>
+                    <td>8484848484</td>
+                    <td>yash07@gmail.co</td>
+                </tr>
+                <tr>
+                    <td>Mayank</td>
+                    <td>QA</td>
+                    <td>9797979797</td>
+                    <td>yash07@gmail.co</td>
+                </tr>
+                <tr>
+                    <td>Yash</td>
+                    <td>BAck end</td>
+                    <td>9685754525</td>
+                    <td>yash07@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            const searchFun =() =>{
+                let filter = document.getElementById('myInput').value.toUpperCase();
+                let myTable = document.getElementById('myTable');
+                let tr = myTable.getElementsByTagName('tr');
+
+                for(var i=0; i<tr.length; i++){
+                    let td = tr[i].getElementsByTagName('td')[0];
+
+                   if(td){
+                    let textValue = td.textContent || td.innerHTML;
+                     
+                    if(textValue.toUpperCase().indexOf(filter) > -1){
+                        tr[i].style.display = "";
+                    }else{
+                        tr[i].style.display = "none";
+                    }
+                   }
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
